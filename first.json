@@ -1,0 +1,12 @@
+{
+    "name": "sachin",
+    "score": 67,
+    "isAdmin": true,
+    "License": null,
+    "shopItem": ["food", "salt", "oil"],
+    "obj": {
+        "name": "object",
+        "marks": 45,
+        "shopItem2": ["food", "salt", {"a": false}]
+    }
+} 
