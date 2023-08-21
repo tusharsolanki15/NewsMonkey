@@ -15,13 +15,19 @@ export class News extends Component {
     pageSize: PropTypes.number
   }
 
-  constructor(){
-    super()
+  capitalizeFirstLetter = (string) =>{
+  return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+  const 
+  constructor(props){
+    super(props)
     this.state = {
       articles: [],
       loading: false,
       page: 1
     }
+    document.title = `${this.capitalizeFirstLetter(this.props.category)} - NewsMonkey`;
   } 
 
   async updateNews(){
@@ -93,7 +99,7 @@ export class News extends Component {
     return (
       <div>
         <div className="container my-3">
-            <h1 className='text-center' style={{margin: '30px 0px'}}>NewsMokey - Top Headlines</h1>
+            <h1 className='text-center' style={{margin: '30px 0px'}}>NewsMokey - Top {this.capitalizeFirstLetter(this.props.category)} Headlines</h1>
             {this.state.loading && <Spineer/>}
             <div className="row">
             {!this.state.loading && this.state.articles.map((element)=>{
@@ -102,7 +108,7 @@ export class News extends Component {
                 </div>
             })}
             </div>
-            <div className="container d-flex justify-content-between">
+            <div className="container d-flex justify-content-between">  
             <button disabled={this.state.page<=1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}>&larr; Previous</button>
             <button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults/this.props.pageSize)} type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button>
             </div>
