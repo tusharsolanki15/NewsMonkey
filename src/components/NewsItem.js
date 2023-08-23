@@ -6,7 +6,9 @@ export class NewsItem extends Component {
         return (
             <div className='my-3'>
                 <div className="card">
-                    <span className= {`position-absolute top-0 translate-middle badge rounded-pill bg-${bagColor}`} style={{left:  '85%', zIndex: '1'}}>{source}</span>
+                    <div className="d-flex justify-content-end position-absolute" style={{right: '0'}}>
+                    <span className= {`badge rounded-pill bg-${bagColor}`}>{source}</span>
+                    </div>
                     <img src={!imgUrl ? "https://img.global.news.samsung.com/uk/wp-content/uploads/2023/08/ZFlip5_ZFold5-Global-Launch_PR_dl1-1-002.jpg" : imgUrl} className="card-img-top" alt="..." />
                     <div className="card-body">
                         <h5 className="card-title">{title}</h5>
